@@ -24,7 +24,7 @@ pipeline {
                 steps{
                 deploy adapters: [tomcat9(url: 'http://localhost:8081/',
                               credentialsId: 'naseertom')],
-                     war: 'target/*.war',
+                     war: 'var/lib/jenkins/workspace/tomcat_job/target/java-example.war',
                      contextPath: 'app'
                 }
 
