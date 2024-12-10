@@ -1,4 +1,4 @@
-pipeline {
+\pipeline {
 	agent any	
 	
 	stages{
@@ -19,17 +19,16 @@ pipeline {
 		archiveArtifacts artifacts:'target/*.war'
 		}
 	}
-	
-	stage('deployment'){
-		steps{
-		deploy adapters: [tomcat9(url: 'http://localhost:8081/', 
-                              credentialsId: 'tomcatuser')], 
+	 stage('deployment'){
+                steps{
+                deploy adapters: [tomcat9(url: 'http://localhost:8081/',
+                              credentialsId: 'tomcatuser')],
                      war: 'target/*.war',
                      contextPath: 'app'
-		}
-		
-	}
-	
+                }
+
+        }
+
 	stage('Notification'){
 		steps{
 		emailext(
