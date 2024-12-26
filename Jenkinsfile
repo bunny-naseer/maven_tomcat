@@ -25,7 +25,7 @@ pipeline {
                 deploy adapters: [tomcat9(url: 'http://localhost:8081/',
                               credentialsId: 'naseertom')],
                      war: 'var/lib/jenkins/workspace/tomcat_job/target/java-example.war',
-                     contextPath: 'app'
+                     contextPath: '/var/lib/tomcat9/webapps'
                 }
 
         }
